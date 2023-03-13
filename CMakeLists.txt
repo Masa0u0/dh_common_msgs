@@ -4,6 +4,7 @@ project(dh_common_msgs)
 find_package(catkin REQUIRED COMPONENTS
 	message_generation
 	actionlib_msgs
+	geometry_msgs
 	std_msgs
 )
 
@@ -18,15 +19,16 @@ add_message_files(FILES ${MSG_FILES})
 
 generate_messages(DEPENDENCIES
 	actionlib_msgs
+	geometry_msgs
 	std_msgs
 )
 
 catkin_package(
-	# INCLUDE_DIRS include
+	INCLUDE_DIRS include
 	# LIBRARIES ${PROJECT_NAME}
 )
 
-# include_directories(${catkin_INCLUDE_DIRS})
+include_directories(${catkin_INCLUDE_DIRS})
 
 # ライブラリを作成
 # file(GLOB_RECURSE LIB_CPP_FILES RELATIVE ${PROJECT_SOURCE_DIR} src/${PROJECT_NAME}_cpp/[^.]*.cpp)
